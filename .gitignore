@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Audio, features, and model weights are large and often license-encumbered.
+# Nothing under these is committed - see MODELS_AND_DATASETS.md for why.
+audio/
+models/
+*.wav
+*.flac
+*.mp3
+*.aiff
+*.ogg
+*.onnx
+*.npy
+*.npz
+*.h5
+*.zarr/
+
+# Working material
+experiments/**/out/
+scratch/

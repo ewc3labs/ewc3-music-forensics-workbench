@@ -1,0 +1,9 @@
+{
+  "values": {
+    "lastMWNum": { "lastId": { "prefix": "MW" } },
+    "lastMW": { "template": { "text": "MW-${lastMWNum}" } },
+    "lastFIXNum": { "lastId": { "prefix": "FIX" } },
+    "lastFIX": { "template": { "text": "FIX-${lastFIXNum}" } }
+  },
+  "exclude": ["docs/PROJECT_CHARTER.md"]
+}

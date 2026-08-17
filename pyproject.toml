@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ewc3-music-forensics-workbench"
+version = "0.0.1"
+description = "Open-source workbench for reverse-engineering recorded music: evidence, not just answers."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-3.0-only"
+authors = [{ name = "EWC3 Labs" }]
+keywords = ["music", "audio", "transcription", "dsp", "forensics"]
+
+# Deliberately empty. The charter's stack - numpy, librosa, soundfile, torchaudio, ONNX Runtime - is
+# provisional, and every one of them arrives with a THIRD_PARTY.md row. A dependency gets added when
+# a milestone needs it, not because it is on a candidate list.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.urls]
+Homepage = "https://github.com/ewc3labs/ewc3-music-forensics-workbench"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

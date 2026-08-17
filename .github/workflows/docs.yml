@@ -1,0 +1,21 @@
+name: Docs
+
+# Separate from the Python job on purpose: none of this needs a Python toolchain, and the main CI
+# ignores documentation paths, so a docs-only change would otherwise trigger nothing at all.
+on:
+  workflow_dispatch:
+  push:
+    paths: ["**.md", "docs/**", ".ewc3-docs.json"]
+  pull_request:
+    paths: ["**.md", "docs/**", ".ewc3-docs.json"]
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check documentation
+        run: npx --yes github:ewc3labs/ewc3-docs-tools check
