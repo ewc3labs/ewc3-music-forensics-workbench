@@ -34,8 +34,10 @@ separate status file.
 | `- [~]` | being looked at |
 | `- [x]` | minted into the roadmap, or just delivered |
 
-A checked item names its slice: `[MW-nn] minted in roadmap to address`. The boxes render as real
-checkboxes in Markdown Preview, so either of us can tick them.
+A checked item names its slice: `[MW-nn] minted in roadmap to address`. `[ ]` and `[x]` render as
+real checkboxes in Markdown Preview, so either of us can tick them. `[~]` is not task-list syntax
+and renders as plain text; that is acceptable for a short-lived marker, but tick or clear it when
+the look is over.
 
 **Before minting anything new, search the roadmap.** The same thing gets noticed months apart, and
 it usually already has a row. Fold it in rather than duplicating, and treat the re-report as a
@@ -69,5 +71,6 @@ box or add a slice ID.
 - [x] MW-2 and MW-3 are both "next" in Current Focus with no order between them. Does serialization
       have to exist before the microscope has anything worth saving? — decided: MW-2 first, [MW-3]
       follows once there are real arrays to store
-- [ ] No row has a slice doc yet; the `Doc` column points at design documents. MW-2 is `L` and the
-      first to touch real audio, so it is the likeliest to earn one first.
+- [ ] No row has a slice doc yet; the `Doc` column points at design documents or is `—` (MW-4, MW-5,
+      MW-7). MW-2 is `L` and the first to touch real audio, so it is the likeliest to earn one
+      first.
