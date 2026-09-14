@@ -57,13 +57,17 @@ box or add a slice ID.
 - "Tooling up for proper development slices is your first task after fixing the roadmap to agree
   with the canonical template." The punchlist, `slices/` and `modules/` are stood up ahead of the
   first slice doc.
+- On MW-2 vs MW-3 order: "I don't have an opinion. We move this project forward one step at a time,
+  so I'll say Dealer's Choice on this one." MW chose MW-2 first — storage format is deferred on
+  purpose, and the microscope produces the first real arrays to choose a format against.
 
 **Items:**
 
 - [ ] Both workflows log Node 20 deprecation warnings: the runner forces the `@v4`/`@v5` actions
       onto Node 24, and `docs.yml` still pins `node-version: "20"` for `ewc3-docs-tools`. Still
       green.
-- [ ] MW-2 and MW-3 are both "next" in Current Focus with no order between them. Does serialization
-      have to exist before the microscope has anything worth saving?
+- [x] MW-2 and MW-3 are both "next" in Current Focus with no order between them. Does serialization
+      have to exist before the microscope has anything worth saving? — decided: MW-2 first, [MW-3]
+      follows once there are real arrays to store
 - [ ] No row has a slice doc yet; the `Doc` column points at design documents. MW-2 is `L` and the
       first to touch real audio, so it is the likeliest to earn one first.

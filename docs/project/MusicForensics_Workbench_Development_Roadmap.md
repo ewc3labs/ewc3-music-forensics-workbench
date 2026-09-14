@@ -19,7 +19,7 @@ AsOf: 2026-09-14
 ## Current Focus
 
 1. `MW-2` — next
-2. `MW-3` — next
+2. `MW-3` — after MW-2
 
 ## ID Prefixes
 
