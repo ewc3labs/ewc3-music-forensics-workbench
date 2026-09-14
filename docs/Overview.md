@@ -19,7 +19,9 @@ The [README](../README.md) says what this is and why it exists. These pages are 
 
 ## Project
 
+- [Planning surface](project/README.md): how the roadmap, punchlist, and slice docs fit together.
 - [Roadmap][roadmap]: milestones, and the `MW` prefix registration.
+- [Punchlist][punchlist]: things noticed, not yet slices.
 
 ## The idea in one paragraph
 
@@ -30,4 +32,5 @@ correction is the same kind of object as a machine claim, and quantizing an onse
 destroys the record of where it was actually measured. That last one is the whole point: when the
 beat grid turns out to be wrong, the measurement is what you go back to.
 
+[punchlist]: project/MusicForensics_Workbench_Checkin_Punchlist.md
 [roadmap]: project/MusicForensics_Workbench_Development_Roadmap.md
