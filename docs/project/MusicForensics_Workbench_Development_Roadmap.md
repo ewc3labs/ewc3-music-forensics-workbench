@@ -14,7 +14,7 @@
 
 ---
 
-AsOf: 2026-09-14
+AsOf: 2026-09-15
 
 ## Current Focus
 
@@ -32,7 +32,7 @@ by nothing else. Rename it and the table is silently not read, and every ID belo
 | Prefix | Scope | Owner | Last Used | Series |
 | --- | --- | --- | --- | --- |
 | MW | global | ewc3-music-forensics-workbench | <!--ewc3:lastMW-->MW-8<!--/ewc3:lastMW--> | milestones, slices and features |
-| FIX | repo-local | ewc3-music-forensics-workbench | <!--ewc3:lastFIX-->FIX-0<!--/ewc3:lastFIX--> | small corrections not worth a slice |
+| FIX | repo-local | ewc3-music-forensics-workbench | <!--ewc3:lastFIX-->FIX-1<!--/ewc3:lastFIX--> | small corrections not worth a slice |
 
 `Last Used` is a cache over the Delivery Index, not a second source of truth — the IDs in the tables
 are authoritative. It is derived by the `lastId` resolvers in `.ewc3-docs.json`: `ewc3-docs fix`
@@ -83,9 +83,10 @@ counts are fake precision on a project nobody is scheduling. Sizes are for spott
 `done YYYY-MM-DD — {what done means}` · `deferred — {condition}` · `blocked on {who/what}` ·
 `cancelled — {reverted|refuted|retired}: {why}` · `seen again YYYY-MM-DD`
 
-**For this project, a real environment means real recordings.** Until an analyzer has run over
-actual audio and a human has checked what it claimed, nothing here is 🟩 — a green CI run over
-synthetic fixtures is 🟦.
+**For analysis work, a real environment means real recordings.** Until an analyzer has run over
+actual audio and a human has checked what it claimed, it is not 🟩 — a green CI run over synthetic
+fixtures is 🟦. Repository tooling is proven where it actually operates: a `.gitignore` fix in a
+fresh clone, a workflow in CI.
 
 ## Delivery Index
 
@@ -116,6 +117,7 @@ The evidence model and the machinery every analyzer stands on.
 | MW-3 | ⬜ planned | Evidence bundle serialization | M | [evidence-model](../evidence-model.md) | pending — large arrays stay out of plain JSON; MessagePack, Zarr or HDF5 still open |
 | MW-6 | ⬜ planned | Plugin interface for third-party analyzers | M | [architecture](../architecture.md) | pending — same interface as built-ins, or built-ins quietly get privileges |
 | MW-8 | ⬜ planned | Pick the UI framework | M | [architecture](../architecture.md) | pending — after a vertical slice proves the analysis model, not before |
+| FIX-1 | 🟩 proven | `.gitignore` swallowed the `src/workbench/audio` package | S | — | proven 2026-09-15 — fresh clone of 526faa7: package present, imports, 21 tests pass |
 
 ## Working Rules
 
