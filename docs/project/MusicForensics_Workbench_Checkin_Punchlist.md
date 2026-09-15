@@ -71,6 +71,6 @@ box or add a slice ID.
 - [x] MW-2 and MW-3 are both "next" in Current Focus with no order between them. Does serialization
       have to exist before the microscope has anything worth saving? — decided: MW-2 first, [MW-3]
       follows once there are real arrays to store
-- [ ] No row has a slice doc yet; the `Doc` column points at design documents or is `—` (MW-4, MW-5,
+- [x] No row has a slice doc yet; the `Doc` column points at design documents or is `—` (MW-4, MW-5,
       MW-7). MW-2 is `L` and the first to touch real audio, so it is the likeliest to earn one
-      first.
+      first. — [MW-2] slice doc written: `slices/MW-2_Microscope.md`

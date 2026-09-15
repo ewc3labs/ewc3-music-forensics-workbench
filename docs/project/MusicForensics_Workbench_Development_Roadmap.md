@@ -102,7 +102,7 @@ standing check against building infrastructure and calling it progress.
 
 | ID | State | Slice | Est | Doc | Status |
 | --- | --- | --- | --- | --- | --- |
-| MW-2 | ⬜ planned | Milestone 1: the microscope — waveform, spectrogram, playback | L | [architecture](../architecture.md) | pending — no ML; first test of the evidence model against real signal |
+| MW-2 | ⬜ planned | Milestone 1: the microscope — waveform, spectrogram, playback | L | [`MW-2_Microscope.md`](slices/MW-2_Microscope.md) | pending — no ML; first test of the evidence model against real signal |
 | MW-4 | ⬜ planned | Milestone 2: onset detection and meter experiments | L | — | pending — the Jimmy Page question, stated as an experiment rather than a feature |
 | MW-5 | ⬜ planned | Milestone 3: continuous pitch tracking | L | — | pending — contours, not immediate MIDI quantization; bends and vibrato must survive |
 | MW-7 | ⬜ planned | Milestone 4: source separation | L | — | pending — likely the first model, so a MODELS_AND_DATASETS row comes first |
