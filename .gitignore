@@ -13,8 +13,10 @@ htmlcov/
 
 # Audio, features, and model weights are large and often license-encumbered.
 # Nothing under these is committed - see MODELS_AND_DATASETS.md for why.
-audio/
-models/
+# The folder patterns are anchored to the repo root. Unanchored, `audio/` also matched the
+# src/workbench/audio/ package, which silently kept its source out of git (FIX-1).
+/audio/
+/models/
 *.wav
 *.flac
 *.mp3
