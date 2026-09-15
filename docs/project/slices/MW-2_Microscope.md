@@ -30,8 +30,10 @@ synthetic signals.
 - [ ] **Human claims.** Markers, barlines, beat one, and "assume N BPM" are `Claim`s with
       `source="human"` and an actor. The grid is **one** claim, a tempo hypothesis citing its
       anchor. Its lines are rendering.
-- [ ] **Playback.** Loop a region and slow it down without changing pitch. Playback position maps
-      back to source seconds through the stretch ratio.
+- [ ] **Playback.** Loop a region and slow it down without changing pitch. `rate` is source seconds
+      per playback second, so half speed is `0.5`. Inside a loop from `a` to `b`, playback time `p`
+      maps to source seconds `a + ((p · rate) mod (b − a))`. Test it slowed: at half speed an
+      inverted ratio lands at `a + 2p` before wrapping, which looks plausible and is wrong.
 - [ ] **Prototype viewer.** A spike to wire zoom, cursor, overlays, and marker placement onto the
       pieces above. **Disposable by declaration.** MW-8 picks the real UI framework after this.
 - [ ] **The session.** Wilson works the intro on his own machine, with his own copy of the
@@ -57,11 +59,13 @@ synthetic signals.
 
 ## Done when
 
-- 🟦 **tested:** load, peaks, STFT, human claims, and the stretch-ratio mapping have tests over
-  synthetic signals that CI runs.
-- 🟩 **proven:** Wilson has placed the barlines on the intro in the tool, they survive as human
-  claims with their raw seconds, and Wilson says it beat paper. `Status` names the machine and the
-  recording.
+- 🟦 **tested:** load, peaks, STFT, human claims, and the playback mapping have tests over synthetic
+  signals that CI runs. One of them stretches a 440 Hz sine to half speed and checks that it lasts
+  twice as long and is still 440 Hz.
+- 🟩 **proven:** in one session on the intro, Wilson loops a region, slows it down and hears the
+  pitch hold, zooms to individual attacks, sets a BPM and sees the grid, and places markers and
+  barlines. They survive as human claims with their raw seconds, and Wilson says it beat paper.
+  `Status` names the machine and the recording.
 
 ## Links
 
