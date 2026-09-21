@@ -101,6 +101,11 @@ reason; adding it raised the file count from 11 to 12 and immediately found it u
 `.github/copilot-instructions.md` is deliberately **out**: `format` would rewrap lines inside the
 generated block, and the extension would rewrite them back on the next workspace open.
 
+The authored half of `.github/copilot-instructions.md` survives the extension's normal rewrite by
+construction, but **the Regenerate Instructions command overwrites the file wholesale**, as does
+turning `aiTokenOptimizer.preserveExistingInstructions` off. If the authored section vanishes,
+restore it from git.
+
 ## Conventions inherited from the org
 
 - `docs/project/` roadmap, punchlist and slices · `docs/RAG_Sessions/` how a hard problem was

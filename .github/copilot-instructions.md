@@ -22,6 +22,13 @@
 Everything between the `AI-TOKEN-OPTIMIZER` markers is written by a local VS Code extension and is
 rewritten on workspace open — do not hand-edit it, and expect it to change without review.
 
+**This authored section survives that rewrite, but not unconditionally.** The extension's merge keeps
+everything before the start marker and after the end marker, and replaces only the section between
+them. Two things bypass the merge and overwrite the whole file: setting
+`aiTokenOptimizer.preserveExistingInstructions` to false, and running the **Regenerate Instructions**
+command, which forces that flag off regardless of the setting. If this section ever disappears,
+that is why — restore it from git rather than rewriting it from memory.
+
 **It describes optional local tooling, not a repository dependency.** `rtk`, `codegraph` and the
 `token-cache` MCP server are installed per machine, and this repository neither ships nor requires
 them. If a tool is not on your PATH or not offered in your session, ignore the guidance that depends
