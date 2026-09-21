@@ -4,7 +4,7 @@
 > identity, tone, method and engineering discipline for every EWC3 Labs repo. Repeat none of it here.
 > Write only what an agent would get **wrong** in this repository without being told.
 >
-> Precedence: platform instructions → HQ baseline → this file → `copilot-instructions.md`.
+> Precedence: platform instructions → HQ baseline → this file → `.github/copilot-instructions.md`.
 
 ---
 
@@ -43,7 +43,7 @@ Anchor data-folder patterns to the repo root, and when a new package appears und
 - **Dependencies point inwards toward `evidence/`.** An analyzer emits claims; it does not know what
   the interpretation layer does with them, and it never knows about the UI.
 - **No analyzer owns the truth.** Two analyzers disagreeing is a normal state, surfaced by
-  `EvidenceGraph.disagreements()`, not an error to resolve before storage.
+  `EvidenceGraph.disagreements(kind)`, not an error to resolve before storage.
 - **Quantization derives, it never edits.** A beat claim cites the onset claim; the raw measured
   seconds survive untouched.
 - **The UI data model is not the canonical data model.** Zoom, loop regions and scroll are viewer
