@@ -31,3 +31,18 @@ htmlcov/
 # Working material
 experiments/**/out/
 scratch/
+
+# AI Token Optimizer extension artifacts (generated per machine on workspace open).
+# The extension rewrites these itself, so they are machine-local, not repo canon:
+# CLAUDE.md and .codex/ are its instruction outputs, .cavemanrc its verbosity config,
+# .aicache/ the semantic answer cache and telemetry, .codegraph/ the index database.
+# Matches the block in ewc3labs-hq. Added 2026-09-21.
+CLAUDE.md
+.codex/
+.cavemanrc
+.aicache/
+.codegraph/
+
+# The extension also writes MCP servers with absolute local paths into .vscode/settings.json,
+# and this repo is public. Ignored until LabsHQ rules on tracking a redacted copy instead.
+.vscode/settings.json
