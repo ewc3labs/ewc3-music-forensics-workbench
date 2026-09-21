@@ -94,6 +94,13 @@ Tooling writes into working trees. **Decide per file by what reads it:**
 Audio, feature arrays and model weights are ignored by extension and by root folder, for size and
 for licence. Anchor any new folder pattern to the repo root.
 
+**A tracked file is not automatically a checked one.** `format` and `values` act on
+`.ewc3-docs.json`'s `include`, which defaults to `README.md` plus `docs/**.md` — a new root document
+is checked by nothing while the run still reports green. `AGENTS.md` is in `include` for that
+reason; adding it raised the file count from 11 to 12 and immediately found it unformatted.
+`.github/copilot-instructions.md` is deliberately **out**: `format` would rewrap lines inside the
+generated block, and the extension would rewrite them back on the next workspace open.
+
 ## Conventions inherited from the org
 
 - `docs/project/` roadmap, punchlist and slices · `docs/RAG_Sessions/` how a hard problem was
