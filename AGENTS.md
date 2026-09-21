@@ -34,9 +34,9 @@ Work with those, never around them.
 
 The trap that has already cost real time: **`.gitignore` data patterns silently swallowing source.**
 An unanchored `audio/` pattern matched `src/workbench/audio/`, so that package was never committed
-and a fresh clone did not have it — CI stayed green because nothing imported it yet (FIX-1, 526faa7).
-Anchor data-folder patterns to the repo root, and when a new package appears under `src/`, run
-`git check-ignore -v` on it.
+and a fresh clone did not have it — CI stayed green because nothing imported it yet (FIX-1,
+526faa7). Anchor data-folder patterns to the repo root, and when a new package appears under `src/`,
+run `git check-ignore -v` on it.
 
 ## Architecture, in the amount an agent needs to not break it
 
@@ -64,8 +64,9 @@ against), which ML models, notation and tablature output, and the project's fina
 
 - **Language and toolchain** — Python ≥ 3.11, `pyproject.toml`, ruff and pytest. `make test`,
   `make lint`, `make verify`. `make fix` rewrites; `make verify` only asks.
-- **Layout** — `src/workbench/` with `audio/ analysis/ evidence/ interpretation/ export/ plugins/
-  ui/ core/`, `tests/`, `experiments/` for throwaway probes, `docs/` for everything written down.
+- **Layout** — `src/workbench/` with
+  `audio/ analysis/ evidence/ interpretation/ export/ plugins/ ui/ core/`, `tests/`, `experiments/`
+  for throwaway probes, `docs/` for everything written down.
 - **Tests** — `pytest -q`; green means all pass. Tests **synthesize their signals**; no recording is
   ever committed. Concentrate tests on timing math and evidence transformations, where a mistake is
   silent because a wrong number still renders.
@@ -73,8 +74,9 @@ against), which ML models, notation and tablature output, and the project's fina
   `docs.yml` runs `ewc3-docs check` on documentation changes. Both gate a PR.
 - **Licensing is load-bearing here.** A dependency gets its `THIRD_PARTY.md` row **in the same
   change** that adds it, with its integration mode. A model gets a `MODELS_AND_DATASETS.md` row
-  **before** it is wired in, because the answer sometimes disqualifies it. Code, weights and training
-  data are three separate license objects. The project licence is GPL-3.0-only, provisional.
+  **before** it is wired in, because the answer sometimes disqualifies it. Code, weights and
+  training data are three separate license objects. The project licence is GPL-3.0-only,
+  provisional.
 - **Public repo** — nothing machine-specific, no absolute paths, no credentials or audio in
   fixtures. The source recordings are copyrighted and stay on the machine that owns them.
 
@@ -89,8 +91,8 @@ Tooling writes into working trees. **Decide per file by what reads it:**
 | `.aicache/`, `.codegraph/` | one machine's caches and indexes | **ignored** |
 | `.vscode/settings.json` | this editor, on this machine | **ignored** — this repo is public, and the AI extension writes absolute user paths into it. Shared editor settings belong in the multi-root `.code-workspace` instead |
 
-Audio, feature arrays and model weights are ignored by extension and by root folder, for size and for
-licence. Anchor any new folder pattern to the repo root.
+Audio, feature arrays and model weights are ignored by extension and by root folder, for size and
+for licence. Anchor any new folder pattern to the repo root.
 
 ## Conventions inherited from the org
 
@@ -108,7 +110,8 @@ The charter decides, until a repository document or Wilson supersedes it. The [r
 owns the status of everything minted, and its Current Focus says what is actually next. MW owns this
 lane; LabsHQ owns estate-wide rulings.
 
-The question worth asking before building rather than after: **what claim does this produce, and what
-does it cite?** Anything that cannot answer that is probably a shortcut through the evidence model.
+The question worth asking before building rather than after: **what claim does this produce, and
+what does it cite?** Anything that cannot answer that is probably a shortcut through the evidence
+model.
 
 [roadmap]: docs/project/MusicForensics_Workbench_Development_Roadmap.md
