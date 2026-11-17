@@ -87,12 +87,20 @@ Tooling writes into working trees. **Decide per file by what reads it:**
 | File | Read by | Verdict |
 | --- | --- | --- |
 | `AGENTS.md`, `.github/copilot-instructions.md` | every clone, and GitHub | **tracked** — authored, reviewed, useful to others |
-| `CLAUDE.md`, `.codex/`, `.cavemanrc` | one machine's tooling, when any is installed | **ignored** — machine-local, not repo canon. The tool that wrote these was removed fleet-wide on 2026-11-17; the ignores stay as insurance |
-| `.aicache/`, `.codegraph/` | one machine's caches and indexes | **ignored** |
+| `CLAUDE.md`, `.codex/`, `.cavemanrc`, `.aicache/`, `.codegraph/` | one machine's tooling, if anything writes them again | **not ignored, not committed** — see below |
 | `.vscode/settings.json` | this editor, on this machine | **ignored** — this repo is public, and editor tooling writes absolute user paths into it. Shared editor settings belong in the multi-root `.code-workspace` instead |
 
+**Do not add an ignore rule to catch a tool's artifacts.** An ignored file never appears in
+`git status`, so the rule meant to catch a reappearance is what hides it: `.cavemanrc` sat ignored
+in four Labs repos for six weeks and was found by listing files, not by git. Leave such a file
+unignored — it shows as untracked, and a human decides. `.vscode/settings.json` is the one
+exception, because editor tooling writes it routinely, so its presence is never a signal, and this
+repo is public.
+
 Audio, feature arrays and model weights are ignored by extension and by root folder, for size and
-for licence. Anchor any new folder pattern to the repo root.
+for licence. Anchor any new folder pattern to the repo root — that rule is what FIX-1 taught, and it
+is the same lesson from the other end: an ignore rule you cannot see the effect of is the dangerous
+kind.
 
 **A tracked file is not automatically a checked one.** `format` and `values` act on
 `.ewc3-docs.json`'s `include`, which defaults to `README.md` plus `docs/**.md` — a new root document
