@@ -32,19 +32,16 @@ htmlcov/
 experiments/**/out/
 scratch/
 
-# Per-machine agent tooling artifacts: instruction files, verbosity config, caches and indexes
-# that a tool regenerates in the working tree rather than a human authoring them.
-# Added 2026-09-21 for the AI Token Optimizer extension, which wrote all of these. That extension
-# was removed fleet-wide on 2026-11-17 and nothing writes them today; the lines stay as insurance,
-# because the cost of keeping them is nothing and the cost of committing one is a public repo
-# carrying another machine's state. If a file below reappears, something is installed again.
-CLAUDE.md
-.codex/
-.cavemanrc
-.aicache/
-.codegraph/
-
-# Editor tooling writes MCP servers with absolute local paths into .vscode/settings.json, and this
-# repo is public. Shared editor settings belong in the multi-root .code-workspace, which is
-# authored and reviewable. LabsHQ ruled on this 2026-09-21: ignore it, do not track a redacted copy.
+# No ignore rules for agent-tooling artifacts. The AI Token Optimizer wrote CLAUDE.md, .codex/,
+# .cavemanrc, .aicache/ and .codegraph/; it was removed fleet-wide 2026-11-17 and the rules went
+# with it. They were kept briefly as a trap for a reappearance, and that was backwards: .cavemanrc
+# sat ignored in four Labs repos for six weeks with `git status` silent the whole time, and it was
+# found by listing files rather than by git. An ignored canary is a canary nobody checks. Unignored,
+# a regenerated file shows up as untracked and somebody decides; an accidental commit is a visible
+# mistake rather than a silent one. LabsHQ ruling 2026-11-17, RT's call.
+#
+# .vscode/settings.json is the deliberate exception, and for the opposite reason: editor tooling
+# still writes it routinely, so its presence is never a signal, and this repo is public - it has
+# already carried MCP servers with absolute user paths. Shared editor settings belong in the
+# multi-root .code-workspace, which is authored and reviewable.
 .vscode/settings.json
