@@ -87,9 +87,9 @@ Tooling writes into working trees. **Decide per file by what reads it:**
 | File | Read by | Verdict |
 | --- | --- | --- |
 | `AGENTS.md`, `.github/copilot-instructions.md` | every clone, and GitHub | **tracked** — authored, reviewed, useful to others |
-| `CLAUDE.md`, `.codex/`, `.cavemanrc` | one machine's tooling, rewritten on open | **ignored** — machine-local, not repo canon |
+| `CLAUDE.md`, `.codex/`, `.cavemanrc` | one machine's tooling, when any is installed | **ignored** — machine-local, not repo canon. The tool that wrote these was removed fleet-wide on 2026-11-17; the ignores stay as insurance |
 | `.aicache/`, `.codegraph/` | one machine's caches and indexes | **ignored** |
-| `.vscode/settings.json` | this editor, on this machine | **ignored** — this repo is public, and the AI extension writes absolute user paths into it. Shared editor settings belong in the multi-root `.code-workspace` instead |
+| `.vscode/settings.json` | this editor, on this machine | **ignored** — this repo is public, and editor tooling writes absolute user paths into it. Shared editor settings belong in the multi-root `.code-workspace` instead |
 
 Audio, feature arrays and model weights are ignored by extension and by root folder, for size and
 for licence. Anchor any new folder pattern to the repo root.
@@ -98,13 +98,8 @@ for licence. Anchor any new folder pattern to the repo root.
 `.ewc3-docs.json`'s `include`, which defaults to `README.md` plus `docs/**.md` — a new root document
 is checked by nothing while the run still reports green. `AGENTS.md` is in `include` for that
 reason; adding it raised the file count from 11 to 12 and immediately found it unformatted.
-`.github/copilot-instructions.md` is deliberately **out**: `format` would rewrap lines inside the
-generated block, and the extension would rewrite them back on the next workspace open.
-
-The authored half of `.github/copilot-instructions.md` survives the extension's normal rewrite by
-construction, but **the Regenerate Instructions command overwrites the file wholesale**, as does
-turning `aiTokenOptimizer.preserveExistingInstructions` off. If the authored section vanishes,
-restore it from git.
+`.github/copilot-instructions.md` is in `include` too, since 2026-11-17: it was held out only
+because a generator rewrote part of it, and that generator is gone.
 
 ## Conventions inherited from the org
 

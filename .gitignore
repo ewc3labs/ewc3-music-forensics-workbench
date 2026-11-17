@@ -32,17 +32,19 @@ htmlcov/
 experiments/**/out/
 scratch/
 
-# AI Token Optimizer extension artifacts (generated per machine on workspace open).
-# The extension rewrites these itself, so they are machine-local, not repo canon:
-# CLAUDE.md and .codex/ are its instruction outputs, .cavemanrc its verbosity config,
-# .aicache/ the semantic answer cache and telemetry, .codegraph/ the index database.
-# Matches the block in ewc3labs-hq. Added 2026-09-21.
+# Per-machine agent tooling artifacts: instruction files, verbosity config, caches and indexes
+# that a tool regenerates in the working tree rather than a human authoring them.
+# Added 2026-09-21 for the AI Token Optimizer extension, which wrote all of these. That extension
+# was removed fleet-wide on 2026-11-17 and nothing writes them today; the lines stay as insurance,
+# because the cost of keeping them is nothing and the cost of committing one is a public repo
+# carrying another machine's state. If a file below reappears, something is installed again.
 CLAUDE.md
 .codex/
 .cavemanrc
 .aicache/
 .codegraph/
 
-# The extension also writes MCP servers with absolute local paths into .vscode/settings.json,
-# and this repo is public. Ignored until LabsHQ rules on tracking a redacted copy instead.
+# Editor tooling writes MCP servers with absolute local paths into .vscode/settings.json, and this
+# repo is public. Shared editor settings belong in the multi-root .code-workspace, which is
+# authored and reviewable. LabsHQ ruled on this 2026-09-21: ignore it, do not track a redacted copy.
 .vscode/settings.json
